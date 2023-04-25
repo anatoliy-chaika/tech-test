@@ -1,5 +1,5 @@
 import { CardContainer, HeroDiv } from 'components/userCard/userCard.stuled';
-import { Logo } from 'components/userCard/headerLogo';
+import { Logo } from 'components/userCard/logo';
 import { DivLine } from './divLine';
 import { Infouser } from './infoUser';
 

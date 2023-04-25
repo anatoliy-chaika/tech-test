@@ -7,7 +7,7 @@ export const CardContainer = styled.li`
   height: 460px;
   border-radius: 20px;
   padding-top: 28px;
-  margin: auto;
+  margin: 20px auto;
   background: linear-gradient(
     114.99deg,
     #471ca9 -0.99%,

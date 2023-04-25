@@ -1,4 +1,18 @@
 import styled from '@emotion/styled';
+import { NavLink } from 'react-router-dom';
+
+export const ButtonBack = styled(NavLink)`
+  text-decoration: none;
+  display: inline-block;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 10px;
+  background-color: #ebd8ff;
+`;
+
+export const H1Styled = styled.h1`
+  text-align: center;
+`;
 
 export const ButtonMore = styled.button`
   display: block;
