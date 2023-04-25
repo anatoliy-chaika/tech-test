@@ -18,15 +18,24 @@ export const App = () => {
       try {
         const { data } = await getUsers(page);
         setUsers(prev => [...prev, ...data]);
-        const response = await getFullArray();
-        setFullArray(response);
-        console.log(response);
       } catch (error) {
         console.log(error);
       }
     };
     fetch();
   }, [page]);
+
+  useEffect(() => {
+    const fetch = async () => {
+      try {
+        const response = await getFullArray();
+        setFullArray(response);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetch();
+  }, []);
 
   return (
     <>
@@ -35,7 +44,7 @@ export const App = () => {
           return <UserCard key={item.id} item={item}></UserCard>;
         })}
       </UlOfCards>
-      {users.length <= fullArray.length && (
+      {users.length !== fullArray.length && (
         <ButtonMore type="button" onClick={() => handleLoad()}>
           Load more
         </ButtonMore>

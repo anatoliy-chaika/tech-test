@@ -14,3 +14,14 @@ export const getFullArray = async () => {
   );
   return response.data;
 };
+
+export const updateData = async (id, follows) => {
+  const response = await axios({
+    method: 'put',
+    url: `https://6442e38b33997d3ef91bd798.mockapi.io/users/${id}`,
+    data: {
+      followers: follows,
+    },
+  });
+  return response.data;
+};

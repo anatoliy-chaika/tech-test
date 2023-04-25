@@ -100,5 +100,27 @@ export const FollowButton = styled.button`
   font-size: 18px;
   line-height: 22px;
   color: #373737;
+  background: #ebd8ff;
   text-transform: uppercase;
+  box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.25);
+`;
+
+export const FollowingButton = styled.button`
+  display: block;
+  cursor: pointer;
+  min-width: 196px;
+  min-height: 50px;
+  padding: 14px 28px 14px 28px;
+  border: none;
+  border-radius: 10px;
+  margin-top: 26px;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+  background: #5cd3a8;
+  color: #373737;
+  text-transform: uppercase;
+  box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.25);
 `;
