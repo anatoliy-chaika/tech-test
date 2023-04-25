@@ -18,10 +18,12 @@ const useLocalStorage = (key, defaultValue) => {
 };
 
 export const Infouser = ({ item: { followers, tweets, id } }) => {
+  const [userId, setUserId] = useState('');
   const [newFollower, setFollower] = useState(followers);
   const [isFollow, setIsFollow] = useLocalStorage(id, false);
 
   const toggle = () => {
+    setUserId(id);
     if (!isFollow) {
       setIsFollow(true);
       setFollower(prev => prev + 1);
@@ -32,15 +34,18 @@ export const Infouser = ({ item: { followers, tweets, id } }) => {
   };
 
   useEffect(() => {
+    if (!userId) {
+      return;
+    }
     const edit = async () => {
       try {
-        await updateData(id, newFollower);
+        await updateData(userId, newFollower);
       } catch (error) {
         console.log(error);
       }
     };
     edit();
-  }, [id, newFollower]);
+  }, [userId, newFollower]);
 
   return (
     <div>
