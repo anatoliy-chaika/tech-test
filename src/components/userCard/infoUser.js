@@ -6,29 +6,21 @@ import {
   FollowingButton,
 } from './userCard.stuled';
 import { updateData } from 'Servises/hepers';
+import { isUser, addId, deleteId } from 'Servises/hepers';
 
-const useLocalStorage = (key, defaultValue) => {
-  const [state, setState] = useState(() => {
-    return JSON.parse(window.localStorage.getItem(key)) ?? defaultValue;
-  });
-  useEffect(() => {
-    window.localStorage.setItem(key, JSON.stringify(state));
-  }, [key, state]);
-  return [state, setState];
-};
-
-export const Infouser = ({ item: { followers, tweets, id } }) => {
+export const InfoUser = ({ item: { followers, tweets, id } }) => {
   const [userId, setUserId] = useState('');
   const [newFollower, setFollower] = useState(followers);
-  const [isFollow, setIsFollow] = useLocalStorage(id, false);
+
+  const isFollow = isUser(id);
 
   const toggle = () => {
     setUserId(id);
     if (!isFollow) {
-      setIsFollow(true);
+      addId(id);
       setFollower(prev => prev + 1);
     } else {
-      setIsFollow(false);
+      deleteId(id);
       setFollower(prev => prev - 1);
     }
   };
@@ -39,13 +31,13 @@ export const Infouser = ({ item: { followers, tweets, id } }) => {
     }
     const edit = async () => {
       try {
-        await updateData(userId, newFollower);
+        await updateData(id, newFollower);
       } catch (error) {
         console.log(error);
       }
     };
     edit();
-  }, [userId, newFollower]);
+  }, [userId, id, newFollower]);
 
   return (
     <div>

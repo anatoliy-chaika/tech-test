@@ -5,7 +5,7 @@ export const DivLine = ({ item }) => {
     <>
       <Line></Line>
       <Circle>
-        <Img src={`${item.avatar}`} alt="" />
+        <Img src={`${item.avatar}`} alt="user image" />
       </Circle>
     </>
   );

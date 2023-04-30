@@ -9,6 +9,7 @@ const Tweets = () => {
   const [users, setUsers] = useState([]);
   const [page, setPage] = useState(1);
   const [fullArray, setFullArray] = useState([]);
+
   const handleLoad = () => {
     setPage(prev => prev + 1);
   };

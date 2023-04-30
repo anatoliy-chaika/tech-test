@@ -25,3 +25,27 @@ export const updateData = async (id, follows) => {
   });
   return response.data;
 };
+
+function isUser(id) {
+  const array = JSON.parse(localStorage.getItem('users')) || [];
+  return array.includes(id);
+}
+
+function addId(id) {
+  const array = JSON.parse(localStorage.getItem('users')) || [];
+  if (!array.includes(id)) {
+    array.push(id);
+    localStorage.setItem('users', JSON.stringify(array));
+  }
+}
+
+function deleteId(id) {
+  const array = JSON.parse(localStorage.getItem('users')) || [];
+  const index = array.indexOf(id);
+  if (index !== -1) {
+    array.splice(index, 1);
+    localStorage.setItem('users', JSON.stringify(array));
+  }
+}
+
+export { isUser, addId, deleteId };
